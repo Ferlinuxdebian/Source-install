@@ -35,13 +35,13 @@ function addsources ()
 {
 # Conteúdo gerado pelo dialog é expandido para variável "sources",
 # que vai conter o conteúdo escolhido.
-sources=$( dialog --stdout			               \
+sources=$( dialog --stdout			           \
 		--title 'Seleção de espelhos APT'          \
-		--separate-output			                     \
+		--separate-output			   \
 		--checklist 'Adicionar repositórios' 0 0 0 \
-		Main 	          'Recomendado' on	         \ 
-		Segurity          'Recomendado' on 	       \
-		Updates           'Recomendado' on   	     \
+		Main 	          'Recomendado' on	   \ 
+		Segurity          'Recomendado' on 	   \
+		Updates           'Recomendado' on   	   \
 		Proposed-updates  'Opcional'    off        \
 		Stretch-backports 'Opcional'    off        \
 		Non-free	  'Opcional'    off)
@@ -59,32 +59,32 @@ echo $sources | grep -q 'Non-free' && NONFREE=non-free CONTRIB=contrib
  do
   case "$escolha" in
   Main)
-	SECTION=Main
-	RELEASE_LINK="stretch main"
+  SECTION=Main
+  RELEASE_LINK="stretch main"
   main-install
   ;;
   Segurity)
   SECTION=Segurity
-	segurity-install
-	;;
-	Updates)
-	SECTION=Updates
+  segurity-install
+  ;;
+  Updates)
+  SECTION=Updates
   RELEASE_LINK="stretch-updates main"
   main-install
   ;;
   Proposed-updates)
-	COMENTARIO='#'
-	SECTION=Proposed-updates
+  COMENTARIO='#'
+  SECTION=Proposed-updates
   RELEASE_LINK="stretch-proposed-update main"
   main-install
   ;;
   Stretch-backports)
-	COMENTARIO=''
-	SECTION=Backports
+  COMENTARIO=''
+  SECTION=Backports
   RELEASE_LINK="stretch-backports main"
   main-install
   ;;
-	esac
+  esac
 done
 
 # Após o fim do loop, as mesagens apareceram e haverá
@@ -128,13 +128,13 @@ deb http://deb.debian.org/debian-security/ stretch/updates main $CONTRIB $NONFRE
 # faz o backup do sources.list da maquina e
 # Limpa o arquivo sources.list
 [ $(id -u) = 0 ] && 		        \
-cp $ESPELHOS $ESPELHOS${$}.bak  \
-> $ESPELHOS    			            \
-importante ||                   \
+cp $ESPELHOS $ESPELHOS${$}.bak          \
+> $ESPELHOS    			        \
+importante ||                           \
 # mostra dialógo que o user não é root.
 	{
-		dialog			                                \
-		--title "Sem permissões"	                  \
+		dialog			                    \
+		--title "Sem permissões"                    \
 		--msgbox "Você precisa logar-se como root." \
 		5 40
 		clear
