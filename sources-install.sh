@@ -127,12 +127,13 @@ deb http://deb.debian.org/debian-security/ stretch/updates main $CONTRIB $NONFRE
 # Verifica se o script roda como root, se for
 # faz o backup do sources.list da maquina e
 # Limpa o arquivo sources.list
-[ $(id -u) = 0 ] && \
-cp $ESPELHOS $ESPELHOS${$}.bak
-ALTERA="> $ESPELHOS"
-eval $ALTERA
-importante || \        
-# mostra dialógo que o user não é root.
+if [ $(id -u) = 0 ]; then
+	cp $ESPELHOS $ESPELHOS${$}.bak
+	ALTERA="> $ESPELHOS"
+	eval $ALTERA
+	importante
+else
+#mostra dialógo que o user não é root.
 	{
 		dialog			                    \
 		--title "Sem permissões"                    \
@@ -141,3 +142,4 @@ importante || \
 		clear
 		exit 25
 	} 1>&2 # Como isso é um aviso de falta de permissões, vai para STDERR.
+fi
