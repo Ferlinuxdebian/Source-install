@@ -33,12 +33,12 @@ function importante ()
 dialog                                     \
 --title '##IMPORTANTE LEIA##'              \
 --msgbox '
-O script inicia por padrão é configurado
+O script inicia por padrão já configurado
 com os repositórios "Main" "Segurity" e
-"Updates" que é o mínimo que você deve ter
-Porém se você é usuário de "desktop" e
-iniciante no debian, para uma experiência
-melhor é recomendado marcar todas as
+"Updates" que é o mínimo que você deve ter,
+porém se você é usuário de "desktop" e
+iniciante no debian, para uma melhor  
+experiência é recomendado marcar todas as
 opções. Leia mais sobre como configurar o
 arquivo sources.list nesse link abaixo
 ttps://bit.ly/2sT2vJM'                      \
