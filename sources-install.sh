@@ -2,7 +2,7 @@
 #==============================================================================
 #Título          :sources-install.sh
 #Descrição       :Script simples para adicionar repositórios.
-#Autor		 			 :Fernando Debian
+#Autor		 :Fernando Debian
 #Observações     :Necessita do dialog instalado.
 #==============================================================================
 
