@@ -13,7 +13,11 @@ Conheça o https://linuxdicasesuporte.blogspot.com
 
 ```
 wget https://bit.ly/2HNn6Ut -O sources_install_1.0-1_all.deb
+``` 
+
 Logue-se como root:
+
+```
 dpkg -i sources_install_1.0-1_all.deb; apt install -f -y
 ```
 ## Uso 
